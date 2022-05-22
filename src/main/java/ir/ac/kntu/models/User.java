@@ -1,5 +1,8 @@
 package ir.ac.kntu.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
     private String name;
 
@@ -13,6 +16,10 @@ public class User {
 
     private String phone;
 
+    private Set<Classroom> ownedClassrooms;
+
+    private Set<Classroom> enrolledClassrooms;
+
     public User(String name, String username, String password, String email, String nationalCode, String phone) {
         this.name = name;
         this.username = username;
@@ -20,6 +27,8 @@ public class User {
         this.email = email;
         this.nationalCode = nationalCode;
         this.phone = phone;
+        this.ownedClassrooms = new HashSet<>();
+        this.enrolledClassrooms = new HashSet<>();
     }
 
     public String getName() {
