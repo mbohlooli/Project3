@@ -1,10 +1,11 @@
 package ir.ac.kntu.data;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
-public class DataTable<T> {
+public abstract class DataTable<T> {
     private Set<T> entries;
 
     DataTable() {
@@ -21,5 +22,13 @@ public class DataTable<T> {
 
     public Set<T> search(Predicate<T> query) {
         return new HashSet<>(entries.stream().filter(query).toList());
+    }
+
+    public Set<T> all() {
+        return entries;
+    }
+
+    public Set<T> all(Comparator<T> comparator) {
+        return new HashSet<>(entries.stream().sorted(comparator).toList());
     }
 }
