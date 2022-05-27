@@ -1,5 +1,7 @@
 package ir.ac.kntu.core;
 
+import ir.ac.kntu.commands.Commands;
+
 import java.util.Scanner;
 
 public class Console {
@@ -8,7 +10,7 @@ public class Console {
     public static void listen() {
         while (true) {
             System.out.print(">>> ");
-            System.out.println(scanner.nextLine());
+            Commands.getCommand(scanner.nextLine()).execute();
         }
     }
 }
