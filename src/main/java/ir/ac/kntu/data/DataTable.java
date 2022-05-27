@@ -24,6 +24,10 @@ public abstract class DataTable<T> {
         return new HashSet<>(entries.stream().filter(query).toList());
     }
 
+    public T get(Predicate<T> query) {
+        return entries.stream().filter(query).toList().get(0);
+    }
+
     public Set<T> all() {
         return entries;
     }

@@ -3,34 +3,32 @@ package ir.ac.kntu.core;
 import ir.ac.kntu.data.Users;
 import ir.ac.kntu.models.User;
 
-import java.util.Set;
-
 public class Auth {
-    private User currentUser;
+    private static User currentUser;
 
-    public void register(User user) {
+    public static void register(User user) {
         //TODO: add validation
         Users.getInstance().add(user);
         currentUser = user;
     }
 
-    public void login(String email, String password) {
-        //TODO: make a validate method in user
-        Set<User> users = Users.getInstance().search(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
-        if (users.size() == 1) {
-            this.currentUser = users.iterator().next();
+    public static void login(String username, String password) {
+        User user = Users.getInstance().get(u -> u.matchCredentials(username, password));
+        if (user == null) {
+            throw new IllegalArgumentException("Wrong username or password.");
         }
+        currentUser = user;
     }
 
-    public User getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
     }
 
-    public boolean isLoggedIn() {
+    public static boolean isLoggedIn() {
         return currentUser != null;
     }
 
-    public void logout() {
+    public static void logout() {
         currentUser = null;
     }
 }
