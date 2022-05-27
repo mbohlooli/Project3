@@ -29,6 +29,9 @@ public class Auth {
     }
 
     public static void logout() {
+        if (!isLoggedIn()) {
+            throw new IllegalStateException("You must login first to logout.");
+        }
         currentUser = null;
     }
 }
