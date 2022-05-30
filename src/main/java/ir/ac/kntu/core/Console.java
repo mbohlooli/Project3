@@ -17,4 +17,13 @@ public class Console {
     public static String nextLine() {
         return scanner.nextLine();
     }
+
+    public static String nextLine(String pattern) {
+        //TODO: make this ask for input again
+        String result = scanner.nextLine();
+        if (!result.matches(pattern)) {
+            throw new IllegalStateException("Invalid format.");
+        }
+        return result;
+    }
 }

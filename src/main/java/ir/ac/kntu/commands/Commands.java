@@ -9,6 +9,7 @@ public class Commands {
         {
             put("login", new Login());
             put("logout", new Logout());
+            put("register", new Register());
         }
     };
 

@@ -7,7 +7,9 @@ public class Auth {
     private static User currentUser;
 
     public static void register(User user) {
-        //TODO: add validation
+        if (Users.getInstance().exists(user)) {
+            throw new IllegalArgumentException("User currently exists.");
+        }
         Users.getInstance().add(user);
         currentUser = user;
     }
