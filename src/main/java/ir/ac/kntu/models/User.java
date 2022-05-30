@@ -80,11 +80,19 @@ public class User {
         this.phone = phone;
     }
 
+    public Set<Classroom> getOwnedClassrooms() {
+        return new HashSet<>(ownedClassrooms);
+    }
+
     public boolean matchCredentials(String username, String password) {
         return this.username.equals(username) && this.password.equals(password);
     }
 
-    public void addClassroom(Classroom classroom) {
+    public void addOwnedClassroom(Classroom classroom) {
+        ownedClassrooms.add(classroom);
+    }
+
+    public void enrollClassroom(Classroom classroom) {
         enrolledClassrooms.add(classroom);
     }
 

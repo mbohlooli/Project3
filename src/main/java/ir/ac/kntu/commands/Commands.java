@@ -13,6 +13,7 @@ public class Commands {
             put("register", new Register());
 
             put("create_classroom", new CreateClassroom());
+            put("get_owned_classrooms", new GetOwnedClassrooms());
         }
     };
 

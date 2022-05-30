@@ -31,7 +31,7 @@ public class Classroom {
         this.password = password;
         this.students = new HashSet<>();
         owner = Auth.getCurrentUser();
-        Auth.getCurrentUser().addClassroom(this);
+        Auth.getCurrentUser().addOwnedClassroom(this);
     }
 
     public String getName() {
@@ -80,5 +80,16 @@ public class Classroom {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Classroom{" +
+                "name='" + name + '\'' +
+                ", institute='" + institute + '\'' +
+                ", instructor='" + instructor + '\'' +
+                ", educationYear=" + educationYear +
+                ", isOpen=" + isOpen +
+                '}';
     }
 }
