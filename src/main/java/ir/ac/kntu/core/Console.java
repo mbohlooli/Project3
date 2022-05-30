@@ -13,4 +13,8 @@ public class Console {
             Commands.getCommand(scanner.nextLine()).execute();
         }
     }
+
+    public static String nextLine() {
+        return scanner.nextLine();
+    }
 }

@@ -2,6 +2,7 @@ package ir.ac.kntu.data;
 
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -25,7 +26,8 @@ public abstract class DataTable<T> {
     }
 
     public T get(Predicate<T> query) {
-        return entries.stream().filter(query).toList().get(0);
+        List<T> result = entries.stream().filter(query).toList();
+        return (result.size() != 0) ? result.get(0) : null;
     }
 
     public Set<T> all() {
