@@ -26,4 +26,12 @@ public class Console {
         }
         return result;
     }
+
+    public static int nextInt() {
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    public static boolean nextBoolean() {
+        return scanner.nextLine().equals("y");
+    }
 }

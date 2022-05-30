@@ -1,5 +1,7 @@
 package ir.ac.kntu.models;
 
+import ir.ac.kntu.core.Auth;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,6 +30,8 @@ public class Classroom {
         this.isOpen = isOpen;
         this.password = password;
         this.students = new HashSet<>();
+        owner = Auth.getCurrentUser();
+        Auth.getCurrentUser().addClassroom(this);
     }
 
     public String getName() {

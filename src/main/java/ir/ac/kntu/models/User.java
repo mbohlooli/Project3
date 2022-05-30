@@ -84,6 +84,10 @@ public class User {
         return this.username.equals(username) && this.password.equals(password);
     }
 
+    public void addClassroom(Classroom classroom) {
+        enrolledClassrooms.add(classroom);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
