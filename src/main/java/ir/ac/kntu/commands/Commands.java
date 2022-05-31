@@ -16,6 +16,10 @@ public class Commands {
             put("get_owned_classrooms", new GetOwnedClassrooms());
             put("get_enrolled_classrooms", new GetEnrolledClassrooms());
             put("enroll_classroom", new EnrollClassroom());
+            put("browse_classrooms", new BrowseClassrooms());
+            put("search_classroom_name", new SearchClassroomByName());
+            put("search_classroom_institute", new SearchClassroomByInstitute());
+            put("search_classroom_instructor", new SearchClassroomByInstructor());
         }
     };
 
