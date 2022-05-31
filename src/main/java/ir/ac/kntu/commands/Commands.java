@@ -20,6 +20,7 @@ public class Commands {
             put("search_classroom_name", new SearchClassroomByName());
             put("search_classroom_institute", new SearchClassroomByInstitute());
             put("search_classroom_instructor", new SearchClassroomByInstructor());
+            put("add_student_to_classroom", new AddStudentToClassroom());
         }
     };
 

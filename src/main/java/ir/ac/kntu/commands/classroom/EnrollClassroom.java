@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class EnrollClassroom extends SecureCommand {
     @Override
     public void secureExecute() {
+        //TODO: make a function for selecting classroom
         ArrayList<Classroom> classrooms = Classrooms.getInstance().all();
 
         AtomicInteger counter = new AtomicInteger(1);
@@ -21,6 +22,11 @@ public class EnrollClassroom extends SecureCommand {
         int index = Console.nextInt() - 1;
         Classroom classroom = classrooms.get(index);
 
+        if (!classroom.isOpen()) {
+            System.out.println("The classroom is not open for enrollment. Please contact the owner.");
+            return;
+        }
+        //TODO: ask again
         if (classroom.getPassword() != null) {
             System.out.println("Enter the classroom password: ");
             String password = Console.nextLine();
