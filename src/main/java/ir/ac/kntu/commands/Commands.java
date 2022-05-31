@@ -14,6 +14,8 @@ public class Commands {
 
             put("create_classroom", new CreateClassroom());
             put("get_owned_classrooms", new GetOwnedClassrooms());
+            put("get_enrolled_classrooms", new GetEnrolledClassrooms());
+            put("enroll_classroom", new EnrollClassroom());
         }
     };
 

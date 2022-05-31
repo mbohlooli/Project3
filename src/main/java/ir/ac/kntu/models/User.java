@@ -84,6 +84,10 @@ public class User {
         return new HashSet<>(ownedClassrooms);
     }
 
+    public Set<Classroom> getEnrolledClassrooms() {
+        return new HashSet<>(enrolledClassrooms);
+    }
+
     public boolean matchCredentials(String username, String password) {
         return this.username.equals(username) && this.password.equals(password);
     }
@@ -94,6 +98,7 @@ public class User {
 
     public void enrollClassroom(Classroom classroom) {
         enrolledClassrooms.add(classroom);
+        classroom.addStudent(this);
     }
 
     @Override

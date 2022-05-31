@@ -82,6 +82,10 @@ public class Classroom {
         this.password = password;
     }
 
+    public void addStudent(User user) {
+        students.add(user);
+    }
+
     @Override
     public String toString() {
         return "Classroom{" +
