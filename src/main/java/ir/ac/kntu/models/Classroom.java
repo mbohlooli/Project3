@@ -2,6 +2,7 @@ package ir.ac.kntu.models;
 
 import ir.ac.kntu.core.Auth;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,18 +19,24 @@ public class Classroom {
 
     private String password;
 
+    private String description;
+
     private User owner;
 
     private Set<User> students;
 
-    public Classroom(String name, String institute, String instructor, int educationYear, boolean isOpen, String password) {
+    private ArrayList<Assignment> assignments;
+
+    public Classroom(String name, String institute, String instructor, int educationYear, boolean isOpen, String password, String description) {
         this.name = name;
         this.institute = institute;
         this.instructor = instructor;
         this.educationYear = educationYear;
         this.isOpen = isOpen;
         this.password = password;
+        this.description = description;
         this.students = new HashSet<>();
+        this.assignments = new ArrayList<>();
         owner = Auth.getCurrentUser();
         Auth.getCurrentUser().addOwnedClassroom(this);
     }
@@ -80,6 +87,14 @@ public class Classroom {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void addStudent(User user) {

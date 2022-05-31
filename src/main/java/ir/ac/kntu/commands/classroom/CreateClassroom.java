@@ -16,6 +16,8 @@ public class CreateClassroom extends SecureCommand {
         String instructor = Console.nextLine();
         System.out.print("education year: ");
         int educationYear = Console.nextInt();
+        System.out.println("description: ");
+        String description = Console.nextLine();
         System.out.print("is open(y/n): ");
         boolean isOpen = Console.nextBoolean();
         System.out.print("is private(y/n): ");
@@ -26,7 +28,7 @@ public class CreateClassroom extends SecureCommand {
             password = Console.nextLine();
         }
 
-        Classroom classroom = new Classroom(name, institute, instructor, educationYear, isOpen, password);
+        Classroom classroom = new Classroom(name, institute, instructor, educationYear, isOpen, password, description);
         Classrooms.getInstance().add(classroom);
     }
 }
