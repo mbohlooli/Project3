@@ -2,7 +2,7 @@ package ir.ac.kntu.data;
 
 import ir.ac.kntu.models.User;
 
-import java.util.Set;
+import java.util.ArrayList;
 
 public class Users extends DataTable<User> {
     private static Users instance = new Users();
@@ -16,7 +16,7 @@ public class Users extends DataTable<User> {
     }
 
     public boolean exists(User user) {
-        Set<User> users = search(u -> u.equals(user));
+        ArrayList<User> users = search(u -> u.equals(user));
         return users.size() > 0;
     }
 }
