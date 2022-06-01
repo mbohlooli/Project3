@@ -1,4 +1,4 @@
-    package ir.ac.kntu.commands;
+package ir.ac.kntu.commands;
 
 public interface Command {
     public void execute();
