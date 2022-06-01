@@ -32,6 +32,9 @@ public class AddAssignmentToClassroom extends SecureCommand {
         }
         System.out.print("delay coefficient: ");
         double delayCoefficient = Console.nextDouble();
+        if (delayCoefficient < 0 || delayCoefficient > 1) {
+            throw new IllegalArgumentException("Delay coefficient must be between 0 and 1");
+        }
         //TODO: add questions
 
         Assignment assignment = new Assignment(name, description, start, due, overDue, delayCoefficient, classroom);
