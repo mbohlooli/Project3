@@ -2,6 +2,7 @@ package ir.ac.kntu.commands;
 
 import ir.ac.kntu.commands.auth.*;
 import ir.ac.kntu.commands.classroom.*;
+import ir.ac.kntu.commands.assignment.*;
 
 import java.util.HashMap;
 
@@ -21,6 +22,8 @@ public class Commands {
             put("search_classroom_institute", new SearchClassroomByInstitute());
             put("search_classroom_instructor", new SearchClassroomByInstructor());
             put("add_student_to_classroom", new AddStudentToClassroom());
+
+            put("add_assignment_to_classroom", new AddAssignmentToClassroom());
         }
     };
 

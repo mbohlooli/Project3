@@ -101,6 +101,10 @@ public class Classroom {
         students.add(user);
     }
 
+    public void addAssignment(Assignment assignment) {
+        assignments.add(assignment);
+    }
+
     @Override
     public String toString() {
         return "Classroom{" +
