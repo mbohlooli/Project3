@@ -28,6 +28,7 @@ public class AddAssignmentToClassroom extends SecureCommand {
         System.out.print("over due date: ");
         Date overDue = Console.nextDate();
         if (overDue.before(due)) {
+            //TODO: make a new type of exception and catch it in the console
             throw new IllegalArgumentException("Over due cannot be before due.");
         }
         System.out.print("delay coefficient: ");

@@ -18,7 +18,6 @@ public class Assignment {
     private Classroom classroom;
 
     public Assignment(String name, String description, Date start, Date due, Date overDue, double delayCoefficient, Classroom classroom) {
-        //TODO: add validation for the dates
         this.name = name;
         this.description = description;
         this.start = start;
