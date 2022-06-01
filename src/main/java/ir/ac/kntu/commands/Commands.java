@@ -23,6 +23,7 @@ public class Commands {
             put("search_classroom_instructor", new SearchClassroomByInstructor());
             put("add_student_to_classroom", new AddStudentToClassroom());
             put("edit_classroom", new EditClassroom());
+            put("delete_classroom", new DeleteClassroom());
 
             put("add_assignment_to_classroom", new AddAssignmentToClassroom());
             put("get_assignments_of_classroom", new GetAssignmentsOfClassroom());

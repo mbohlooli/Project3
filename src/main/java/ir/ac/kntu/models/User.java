@@ -101,6 +101,14 @@ public class User {
         classroom.addStudent(this);
     }
 
+    public void removeOwnedClassroom(Classroom classroom) {
+        ownedClassrooms.remove(classroom);
+    }
+
+    public void removeEnrolledClassroom(Classroom classroom) {
+        enrolledClassrooms.remove(classroom);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

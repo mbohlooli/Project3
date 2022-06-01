@@ -109,6 +109,14 @@ public class Classroom {
         return new ArrayList<>(assignments);
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public Set<User> getStudents() {
+        return students;
+    }
+
     @Override
     public String toString() {
         return "Classroom{" +
