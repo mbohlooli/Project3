@@ -1,9 +1,12 @@
 package ir.ac.kntu.core;
 
 import ir.ac.kntu.commands.Commands;
+import ir.ac.kntu.models.Classroom;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Console {
     private static Scanner scanner = new Scanner(System.in);
@@ -40,6 +43,14 @@ public class Console {
         return scanner.nextLine().equals("y");
     }
 
+    public static Classroom nextClassroom(List<Classroom> source) {
+        AtomicInteger counter = new AtomicInteger(1);
+        source.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+
+        System.out.println("Choose the classroom index you want to add student to: ");
+        int index = Console.nextInt() - 1;
+        return source.get(index);
+    }
 
     public static Date nextDate() {
         System.out.print("year: ");

@@ -7,20 +7,12 @@ import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
 
 import java.util.Date;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class AddAssignmentToClassroom extends SecureCommand {
     @Override
     public void secureExecute() {
-        List<Classroom> classrooms = Auth.getCurrentUser().getOwnedClassrooms().stream().toList();
-
-        AtomicInteger counter = new AtomicInteger(1);
-        classrooms.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
-
-        System.out.println("Choose the classroom index you want to add student to: ");
-        int index = Console.nextInt() - 1;
-        Classroom classroom = classrooms.get(index);
+        Classroom classroom = Console.nextClassroom(Auth.getCurrentUser().getOwnedClassrooms().stream().toList());
 
         System.out.print("name: ");
         String name = Console.nextLine();

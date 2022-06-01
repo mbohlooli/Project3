@@ -6,21 +6,11 @@ import ir.ac.kntu.core.Console;
 import ir.ac.kntu.data.Classrooms;
 import ir.ac.kntu.models.Classroom;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class EnrollClassroom extends SecureCommand {
     @Override
     public void secureExecute() {
-        //TODO: make a function for selecting classroom
-        ArrayList<Classroom> classrooms = Classrooms.getInstance().all();
-
-        AtomicInteger counter = new AtomicInteger(1);
-        classrooms.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
-
-        System.out.println("Choose the classroom index you want to enroll: ");
-        int index = Console.nextInt() - 1;
-        Classroom classroom = classrooms.get(index);
+        Classroom classroom = Console.nextClassroom(Classrooms.getInstance().all());
 
         if (!classroom.isOpen()) {
             System.out.println("The classroom is not open for enrollment. Please contact the owner.");
