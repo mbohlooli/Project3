@@ -105,6 +105,10 @@ public class Classroom {
         assignments.add(assignment);
     }
 
+    public ArrayList<Assignment> getAssignments() {
+        return new ArrayList<>(assignments);
+    }
+
     @Override
     public String toString() {
         return "Classroom{" +

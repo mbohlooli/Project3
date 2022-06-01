@@ -24,6 +24,7 @@ public class Commands {
             put("add_student_to_classroom", new AddStudentToClassroom());
 
             put("add_assignment_to_classroom", new AddAssignmentToClassroom());
+            put("get_assignments_of_classroom", new GetAssignmentsOfClassroom());
         }
     };
 

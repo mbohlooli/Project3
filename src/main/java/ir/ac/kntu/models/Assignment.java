@@ -83,4 +83,17 @@ public class Assignment {
     public void setClassroom(Classroom classroom) {
         this.classroom = classroom;
     }
+
+    @Override
+    public String toString() {
+        return "Assignment{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", start=" + start +
+                ", due=" + due +
+                ", overDue=" + overDue +
+                ", delayCoefficient=" + delayCoefficient +
+                ", classroom=" + classroom.getName() +
+                '}';
+    }
 }
