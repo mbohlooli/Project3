@@ -121,4 +121,15 @@ public class User {
     public int hashCode() {
         return Objects.hash(username, email, nationalCode, phone);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", nationalCode='" + nationalCode + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }

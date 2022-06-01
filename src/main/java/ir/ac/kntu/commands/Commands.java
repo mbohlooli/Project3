@@ -3,6 +3,7 @@ package ir.ac.kntu.commands;
 import ir.ac.kntu.commands.auth.*;
 import ir.ac.kntu.commands.classroom.*;
 import ir.ac.kntu.commands.assignment.*;
+import ir.ac.kntu.commands.user.*;
 
 import java.util.HashMap;
 
@@ -12,6 +13,9 @@ public class Commands {
             put("login", new Login());
             put("logout", new Logout());
             put("register", new Register());
+
+            put("search_user_national_code", new SearchUserByNationalCode());
+            put("search_user_email", new SearchUserByEmail());
 
             put("create_classroom", new CreateClassroom());
             put("get_owned_classrooms", new GetOwnedClassrooms());
