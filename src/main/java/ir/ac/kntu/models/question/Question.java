@@ -1,10 +1,13 @@
 package ir.ac.kntu.models.question;
 
 import ir.ac.kntu.core.Auth;
+import ir.ac.kntu.models.Submission;
+import ir.ac.kntu.models.SubmissionPack;
 import ir.ac.kntu.models.User;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Question {
@@ -20,6 +23,8 @@ public abstract class Question {
 
     protected Difficulty difficulty;
 
+    protected Map<User, SubmissionPack> submissionPacks;
+
     public Question(String name, int maxScore, String description, Difficulty difficulty) {
         this.name = name;
         this.maxScore = maxScore;
@@ -27,6 +32,7 @@ public abstract class Question {
         this.difficulty = difficulty;
         owner = Auth.getCurrentUser();
         createdAt = new Date();
+        submissionPacks = new HashMap<>();
     }
 
     public String getName() {
@@ -63,6 +69,15 @@ public abstract class Question {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public void submitAnswer(Submission submission) {
+        ArrayList<Submission> submissions = submissionPacks.get(Auth.getCurrentUser()).getSubmissions();
+        submission.setFinal(true);
+        if (submissions.size() != 0) {
+            submissions.get(submissions.size()-1).setFinal(false);
+        }
+        submissionPacks.get(Auth.getCurrentUser()).addSubmission(submission);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package ir.ac.kntu.models;
 
+import ir.ac.kntu.core.Auth;
 import ir.ac.kntu.models.question.Question;
 
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class SubmissionPack {
 
     public SubmissionPack(Question question) {
         this.question = question;
+        user = Auth.getCurrentUser();
+        submissions = new ArrayList<>();
     }
 
     public User getUser() {
