@@ -27,7 +27,7 @@ public class Submission {
     }
 
     public int getScore() {
-        return score;
+        return (int)(score * delayCoefficient);
     }
 
     public void setScore(int score) {
@@ -40,5 +40,9 @@ public class Submission {
 
     public void setFinal(boolean aFinal) {
         isFinal = aFinal;
+    }
+
+    public void setDelayCoefficient(double delayCoefficient) {
+        this.delayCoefficient = delayCoefficient;
     }
 }

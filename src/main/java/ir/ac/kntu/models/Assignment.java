@@ -1,5 +1,8 @@
 package ir.ac.kntu.models;
 
+import ir.ac.kntu.models.question.Question;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Assignment {
@@ -17,6 +20,8 @@ public class Assignment {
 
     private Classroom classroom;
 
+    private ArrayList<Question> questions;
+
     public Assignment(String name, String description, Date start, Date due, Date overDue, double delayCoefficient, Classroom classroom) {
         this.name = name;
         this.description = description;
@@ -25,6 +30,7 @@ public class Assignment {
         this.overDue = overDue;
         this.delayCoefficient = delayCoefficient;
         this.classroom = classroom;
+        questions = new ArrayList<>();
     }
 
     public String getName() {
@@ -81,6 +87,24 @@ public class Assignment {
 
     public void setClassroom(Classroom classroom) {
         this.classroom = classroom;
+    }
+
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
+    public void addQuestion(Question question) {
+        questions.add(question);
+    }
+
+    public void submitAnswer(Question question, Submission submission) {
+        Date now = new Date();
+
+        if (now.after(due) && now.before(overDue)) {
+            submission.setDelayCoefficient(delayCoefficient);
+        }
+
+        question.submitAnswer(submission);
     }
 
     @Override
