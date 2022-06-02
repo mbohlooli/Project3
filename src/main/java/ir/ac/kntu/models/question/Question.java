@@ -20,16 +20,13 @@ public abstract class Question {
 
     protected String answer;
 
-    protected boolean autoCheck;
-
     protected Difficulty difficulty;
 
-    public Question(String name, int maxScore, String description, String answer, boolean autoCheck, Difficulty difficulty) {
+    public Question(String name, int maxScore, String description, String answer, Difficulty difficulty) {
         this.name = name;
         this.maxScore = maxScore;
         this.description = description;
         this.answer = answer;
-        this.autoCheck = autoCheck;
         this.difficulty = difficulty;
         owner = Auth.getCurrentUser();
         createdAt = new Date();
@@ -69,14 +66,6 @@ public abstract class Question {
 
     public void setAnswer(String answer) {
         this.answer = answer;
-    }
-
-    public boolean isAutoCheck() {
-        return autoCheck;
-    }
-
-    public void setAutoCheck(boolean autoCheck) {
-        this.autoCheck = autoCheck;
     }
 
     public Difficulty getDifficulty() {
