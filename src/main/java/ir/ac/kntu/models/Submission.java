@@ -1,14 +1,11 @@
 package ir.ac.kntu.models;
 
-import ir.ac.kntu.core.Auth;
-import ir.ac.kntu.models.question.Question;
-
 import java.util.Date;
 
 public class Submission {
     private Date dateSent;
 
-    private double delayCoefficient;
+    private double delayCoefficient = 1;
 
     private String answer;
 
@@ -16,8 +13,7 @@ public class Submission {
 
     private int score;
 
-    public Submission(double delayCoefficient, String answer) {
-        this.delayCoefficient = delayCoefficient;
+    public Submission(String answer) {
         this.answer = answer;
         dateSent = new Date();
     }
@@ -44,5 +40,9 @@ public class Submission {
 
     public void setDelayCoefficient(double delayCoefficient) {
         this.delayCoefficient = delayCoefficient;
+    }
+
+    public Date getDateSent() {
+        return dateSent;
     }
 }

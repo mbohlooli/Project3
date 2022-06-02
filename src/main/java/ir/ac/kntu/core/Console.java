@@ -4,6 +4,7 @@ import ir.ac.kntu.commands.Commands;
 import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
 import ir.ac.kntu.models.question.Difficulty;
+import ir.ac.kntu.models.question.Question;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -50,18 +51,31 @@ public class Console {
         AtomicInteger counter = new AtomicInteger(1);
         source.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
 
-        System.out.println("Choose the classroom index you want to add student to: ");
+        System.out.println("Choose the classroom: ");
         int index = Console.nextInt() - 1;
         return source.get(index);
     }
 
     public static Assignment nextAssignment(Classroom source) {
         AtomicInteger counter = new AtomicInteger(1);
-        source.getAssignments().forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+        if (source.getOwner().equals(Auth.getCurrentUser())) {
+            source.getAssignments().forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+        } else {
+            source.getAssignments().stream().filter(a -> a.getStart().before(new Date())).forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+        }
 
         System.out.println("Choose the classroom index you want to add student to: ");
         int index = Console.nextInt() - 1;
         return source.getAssignments().get(index);
+    }
+
+    public static Question nextQuestion(List<Question> questions) {
+        AtomicInteger counter = new AtomicInteger(1);
+        questions.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+
+        System.out.println("Choose the classroom index you want to add student to: ");
+        int index = Console.nextInt() - 1;
+        return questions.get(index);
     }
 
     public static Difficulty nextDifficulty() {
@@ -81,6 +95,6 @@ public class Console {
         System.out.print("day: ");
         int day = nextInt();
 
-        return new Date(year, month, day);
+        return new Date(year-1900, month-1, day);
     }
 }

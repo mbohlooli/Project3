@@ -117,6 +117,7 @@ public class Assignment {
                 ", overDue=" + overDue +
                 ", delayCoefficient=" + delayCoefficient +
                 ", classroom=" + classroom.getName() +
+                ", questions=" + questions.stream().map(Question::getName) +
                 '}';
     }
 }

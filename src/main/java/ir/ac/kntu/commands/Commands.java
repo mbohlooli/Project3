@@ -32,6 +32,7 @@ public class Commands {
             put("add_assignment_to_classroom", new AddAssignmentToClassroom());
             put("get_assignments_of_classroom", new GetAssignmentsOfClassroom());
             put("add_question_to_assignment", new AddQuestionToAssignment());
+            put("submit_assignment_question", new SubmitAssignmentQuestion());
         }
     };
 
