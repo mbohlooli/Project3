@@ -1,8 +1,11 @@
 package ir.ac.kntu.core;
 
 import ir.ac.kntu.commands.Commands;
+import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
+import ir.ac.kntu.models.question.Difficulty;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -50,6 +53,24 @@ public class Console {
         System.out.println("Choose the classroom index you want to add student to: ");
         int index = Console.nextInt() - 1;
         return source.get(index);
+    }
+
+    public static Assignment nextAssignment(Classroom source) {
+        AtomicInteger counter = new AtomicInteger(1);
+        source.getAssignments().forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+
+        System.out.println("Choose the classroom index you want to add student to: ");
+        int index = Console.nextInt() - 1;
+        return source.getAssignments().get(index);
+    }
+
+    public static Difficulty nextDifficulty() {
+        AtomicInteger counter = new AtomicInteger(1);
+        Arrays.stream(Difficulty.values()).toList().forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+
+        System.out.println("Choose the classroom index you want to add student to: ");
+        int index = Console.nextInt() - 1;
+        return Difficulty.values()[index];
     }
 
     public static Date nextDate() {
