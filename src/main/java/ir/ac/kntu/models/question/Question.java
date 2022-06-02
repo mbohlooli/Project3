@@ -64,4 +64,9 @@ public abstract class Question {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
+    @Override
+    public String toString() {
+        return name + "\n" + description;
+    }
 }
