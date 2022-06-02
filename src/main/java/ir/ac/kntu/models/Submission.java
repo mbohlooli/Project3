@@ -6,23 +6,17 @@ import ir.ac.kntu.models.question.Question;
 import java.util.Date;
 
 public class Submission {
-    private Question question;
-
-    private User user;
-
     private Date dateSent;
 
     private double delayCoefficient;
 
-    private int score;
-
     private String answer;
 
-    public Submission(Question question, double delayCoefficient, String answer) {
-        this.question = question;
+    private int score;
+
+    public Submission(double delayCoefficient, String answer) {
         this.delayCoefficient = delayCoefficient;
         this.answer = answer;
-        user = Auth.getCurrentUser();
         dateSent = new Date();
     }
 
