@@ -18,15 +18,12 @@ public abstract class Question {
 
     protected Date createdAt;
 
-    protected String answer;
-
     protected Difficulty difficulty;
 
-    public Question(String name, int maxScore, String description, String answer, Difficulty difficulty) {
+    public Question(String name, int maxScore, String description, Difficulty difficulty) {
         this.name = name;
         this.maxScore = maxScore;
         this.description = description;
-        this.answer = answer;
         this.difficulty = difficulty;
         owner = Auth.getCurrentUser();
         createdAt = new Date();
@@ -58,14 +55,6 @@ public abstract class Question {
 
     public Date getCreatedAt() {
         return createdAt;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
     }
 
     public Difficulty getDifficulty() {
