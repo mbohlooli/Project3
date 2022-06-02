@@ -2,6 +2,7 @@ package ir.ac.kntu.models.question;
 
 import ir.ac.kntu.core.Auth;
 import ir.ac.kntu.models.Submission;
+import ir.ac.kntu.models.SubmissionPack;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class MultipleChoiceQuestion extends Question {
         }
 
         submission.setScore(submission.getAnswer().equals(String.valueOf(answer)) ? maxScore : 0);
-        ArrayList<Submission> submissions = submissionPacks.get(Auth.getCurrentUser()).getSubmissions();
+        ArrayList<Submission> submissions = getOrCreateSubmissionPack().getSubmissions();
         for (Submission s: submissions) {
             if (s.getScore() > submission.getScore()) {
                 return;
@@ -53,7 +54,7 @@ public class MultipleChoiceQuestion extends Question {
         builder.append(name).append("\n").append(description).append("\n");
         int counter = 1;
         for(String choice: choices) {
-            builder.append(counter++).append(" ").append(choice);
+            builder.append(counter++).append(") ").append(choice).append("\n");
         }
         return builder.toString();
     }

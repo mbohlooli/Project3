@@ -73,6 +73,9 @@ public abstract class Question {
 
     public void submitAnswer(Submission submission) {
         ArrayList<Submission> submissions = submissionPacks.get(Auth.getCurrentUser()).getSubmissions();
+        if (submissions == null) {
+            submissionPacks.put(Auth.getCurrentUser(), new SubmissionPack(this));
+        }
         submission.setFinal(true);
         if (submissions.size() != 0) {
             submissions.get(submissions.size()-1).setFinal(false);
@@ -83,5 +86,13 @@ public abstract class Question {
     @Override
     public String toString() {
         return name + "\n" + description;
+    }
+
+    protected SubmissionPack getOrCreateSubmissionPack() {
+        if (!submissionPacks.containsKey(Auth.getCurrentUser())) {
+            submissionPacks.put(Auth.getCurrentUser(), new SubmissionPack(this));
+        }
+
+        return submissionPacks.get(Auth.getCurrentUser());
     }
 }

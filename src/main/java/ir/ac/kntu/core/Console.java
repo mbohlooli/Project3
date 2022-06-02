@@ -64,7 +64,7 @@ public class Console {
             source.getAssignments().stream().filter(a -> a.getStart().before(new Date())).forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
         }
 
-        System.out.println("Choose the classroom index you want to add student to: ");
+        System.out.println("Choose the assignment: ");
         int index = Console.nextInt() - 1;
         return source.getAssignments().get(index);
     }
@@ -73,7 +73,7 @@ public class Console {
         AtomicInteger counter = new AtomicInteger(1);
         questions.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
 
-        System.out.println("Choose the classroom index you want to add student to: ");
+        System.out.println("Choose the question: ");
         int index = Console.nextInt() - 1;
         return questions.get(index);
     }
@@ -82,7 +82,7 @@ public class Console {
         AtomicInteger counter = new AtomicInteger(1);
         Arrays.stream(Difficulty.values()).toList().forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
 
-        System.out.println("Choose the classroom index you want to add student to: ");
+        System.out.println("Choose the difficulty: ");
         int index = Console.nextInt() - 1;
         return Difficulty.values()[index];
     }

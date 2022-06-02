@@ -2,6 +2,7 @@ package ir.ac.kntu.models.question;
 
 import ir.ac.kntu.core.Auth;
 import ir.ac.kntu.models.Submission;
+import ir.ac.kntu.models.SubmissionPack;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class ShortAnswerQuestion extends Question {
         }
 
         submission.setScore(submission.getAnswer().equals(answer) ? maxScore : 0);
-        ArrayList<Submission> submissions = submissionPacks.get(Auth.getCurrentUser()).getSubmissions();
+        ArrayList<Submission> submissions = getOrCreateSubmissionPack().getSubmissions();
         for (Submission s: submissions) {
             if (s.getScore() > submission.getScore()) {
                 return;

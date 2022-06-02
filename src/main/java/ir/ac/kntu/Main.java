@@ -22,6 +22,7 @@ public class Main {
         Users.getInstance().add(user);
         Auth.login("admin", "pass");
         Classroom classroom = new Classroom("class1", "institute1", "instructor1", 1401, true, null, "");
+        user.enrollClassroom(classroom);
         Classrooms.getInstance().add(classroom);
         Classrooms.getInstance().add(new Classroom("class2", "institute2", "instructor2", 1401, true, "pass", ""));
         Date yesterday = new Date(System.currentTimeMillis()-24*60*60*1000);
