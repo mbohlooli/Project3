@@ -1,6 +1,7 @@
 package ir.ac.kntu.models.question;
 
 import ir.ac.kntu.core.Auth;
+import ir.ac.kntu.core.Console;
 import ir.ac.kntu.models.Submission;
 import ir.ac.kntu.models.SubmissionPack;
 
@@ -35,6 +36,21 @@ public class ShortAnswerQuestion extends Question {
         }
         submission.setFinal(true);
         submissionPacks.get(Auth.getCurrentUser()).addSubmission(submission);
+    }
+
+    @Override
+    public void edit() {
+        super.edit();
+        System.out.println("auto check: ");
+        String autoCheck = Console.nextLine();
+        if (!autoCheck.equals("")) {
+            this.autoCheck = autoCheck.equals("y");
+        }
+        System.out.println("answer: ");
+        String answer = Console.nextLine();
+        if(!answer.equals("")) {
+            this.answer = answer;
+        }
     }
 
     public boolean isAutoCheck() {

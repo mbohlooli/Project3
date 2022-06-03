@@ -1,8 +1,8 @@
 package ir.ac.kntu.models.question;
 
 import ir.ac.kntu.core.Auth;
+import ir.ac.kntu.core.Console;
 import ir.ac.kntu.models.Submission;
-import ir.ac.kntu.models.SubmissionPack;
 
 import java.util.ArrayList;
 
@@ -46,6 +46,32 @@ public class MultipleChoiceQuestion extends Question {
 
     public void setAutoCheck(boolean autoCheck) {
         this.autoCheck = autoCheck;
+    }
+
+    @Override
+    public void edit() {
+        super.edit();
+        System.out.println("auto check: ");
+        String autoCheck = Console.nextLine();
+        if (!autoCheck.equals("")) {
+            this.autoCheck = autoCheck.equals("y");
+        }
+        System.out.println("Change choices (y/n)? ");
+        boolean change = Console.nextBoolean();
+        if (change) {
+            System.out.print("number of choices: ");
+            int count = Console.nextInt();
+            choices = new ArrayList<>();
+            for (int i = 0; i < count; i++) {
+                System.out.print("choice " + (i+1) + ": ");
+                choices.add(Console.nextLine());
+            }
+            System.out.print("answer: ");
+            int answer = Console.nextInt();
+            if (answer < 1 && answer > choices.size()) {
+                throw new IllegalArgumentException("Invalid Argument.");
+            }
+        }
     }
 
     @Override

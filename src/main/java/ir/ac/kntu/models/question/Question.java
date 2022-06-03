@@ -1,6 +1,7 @@
 package ir.ac.kntu.models.question;
 
 import ir.ac.kntu.core.Auth;
+import ir.ac.kntu.core.Console;
 import ir.ac.kntu.models.Submission;
 import ir.ac.kntu.models.SubmissionPack;
 import ir.ac.kntu.models.User;
@@ -81,6 +82,33 @@ public abstract class Question {
             submissions.get(submissions.size()-1).setFinal(false);
         }
         submissionPacks.get(Auth.getCurrentUser()).addSubmission(submission);
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void edit() {
+        System.out.print("name: ");
+        String name = Console.nextLine();
+        if (!name.equals("")) {
+            this.name = name;
+        }
+        System.out.print("max score: ");
+        String maxScore = Console.nextLine();
+        if(!maxScore.equals("")) {
+            this.maxScore = Integer.parseInt(maxScore);
+        }
+        System.out.print("description: ");
+        String description = Console.nextLine();
+        if(!description.equals("")) {
+            this.description = description;
+        }
+        System.out.println("Change difficulty(y/n)? ");
+        boolean change = Console.nextBoolean();
+        if (change) {
+            this.difficulty = Console.nextDifficulty();
+        }
     }
 
     @Override

@@ -5,6 +5,7 @@ import ir.ac.kntu.commands.classroom.*;
 import ir.ac.kntu.commands.assignment.*;
 import ir.ac.kntu.commands.question.AddQuestionToQuestionBank;
 import ir.ac.kntu.commands.question.BrowseQuestionBank;
+import ir.ac.kntu.commands.question.EditQuestion;
 import ir.ac.kntu.commands.question.SubmitQuestionBankQuestion;
 import ir.ac.kntu.commands.user.*;
 
@@ -39,10 +40,12 @@ public class Commands {
             put("add_question_to_assignment", new AddQuestionToAssignment());
             put("submit_assignment_question", new SubmitAssignmentQuestion());
             put("delete_question_from_assignment", new DeleteQuestionFromAssignment());
+            put("edit_assignment_question", new EditAssignmentQuestion());
 
             put("add_question_to_question_bank", new AddQuestionToQuestionBank());
             put("browse_question_bank", new BrowseQuestionBank());
             put("submit_question_bank_question", new SubmitQuestionBankQuestion());
+            put("edit_question_bank_question", new EditQuestion());
         }
     };
 
