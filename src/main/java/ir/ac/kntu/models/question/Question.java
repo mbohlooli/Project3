@@ -111,6 +111,10 @@ public abstract class Question {
         }
     }
 
+    public SubmissionPack getSubmissions(User user) {
+        return submissionPacks.get(user);
+    }
+
     @Override
     public String toString() {
         return name + "\n" + description;

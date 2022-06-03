@@ -45,4 +45,15 @@ public class Submission {
     public Date getDateSent() {
         return dateSent;
     }
+
+    @Override
+    public String toString() {
+        return "Submission{" +
+                "dateSent=" + dateSent +
+                ", delayCoefficient=" + delayCoefficient +
+                ", answer='" + answer + '\'' +
+                ", isFinal=" + isFinal +
+                ", score=" + score +
+                '}';
+    }
 }

@@ -34,7 +34,12 @@ public class SubmissionPack {
         submissions.add(submission);
     }
 
-    public void getFinalSubmission() {
-        //TODO: complete this
+    public Submission getFinalSubmission() {
+        for (Submission submission: submissions) {
+            if (submission.isFinal()) {
+                return submission;
+            }
+        }
+        return null;
     }
 }

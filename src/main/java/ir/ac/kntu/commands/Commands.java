@@ -42,6 +42,7 @@ public class Commands {
             put("delete_question_from_assignment", new DeleteQuestionFromAssignment());
             put("edit_assignment_question", new EditAssignmentQuestion());
 
+
             put("add_question_to_question_bank", new AddQuestionToQuestionBank());
             put("browse_question_bank", new BrowseQuestionBank());
             put("submit_question_bank_question", new SubmitQuestionBankQuestion());
