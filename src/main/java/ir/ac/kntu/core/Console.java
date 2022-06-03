@@ -3,6 +3,7 @@ package ir.ac.kntu.core;
 import ir.ac.kntu.commands.Commands;
 import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
+import ir.ac.kntu.models.User;
 import ir.ac.kntu.models.question.*;
 
 import java.util.*;
@@ -126,6 +127,15 @@ public class Console {
         System.out.println("Choose the difficulty: ");
         int index = Console.nextInt() - 1;
         return Difficulty.values()[index];
+    }
+
+    public static User nextUser(List<User> source) {
+        AtomicInteger counter = new AtomicInteger(1);
+        source.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+
+        System.out.println("Choose the classroom: ");
+        int index = Console.nextInt() - 1;
+        return source.get(index);
     }
 
     public static Date nextDate() {

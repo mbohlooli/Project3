@@ -6,10 +6,7 @@ import ir.ac.kntu.models.Submission;
 import ir.ac.kntu.models.SubmissionPack;
 import ir.ac.kntu.models.User;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public abstract class Question {
     protected String name;
@@ -113,6 +110,10 @@ public abstract class Question {
 
     public SubmissionPack getSubmissions(User user) {
         return submissionPacks.get(user);
+    }
+
+    public List<User> getUsers() {
+        return submissionPacks.keySet().stream().toList();
     }
 
     @Override
