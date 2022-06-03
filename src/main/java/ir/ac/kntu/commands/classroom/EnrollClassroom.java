@@ -16,7 +16,7 @@ public class EnrollClassroom extends SecureCommand {
             System.out.println("The classroom is not open for enrollment. Please contact the owner.");
             return;
         }
-        //TODO: ask again
+
         if (classroom.getPassword() != null) {
             System.out.println("Enter the classroom password: ");
             String password = Console.nextLine();

@@ -15,7 +15,11 @@ public class Console {
     public static void listen() {
         while (true) {
             System.out.print(">>> ");
-            Commands.getCommand(scanner.nextLine()).execute();
+            try {
+                Commands.getCommand(scanner.nextLine()).execute();
+            } catch (IllegalArgumentException | IllegalStateException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -24,7 +28,6 @@ public class Console {
     }
 
     public static String nextLine(String pattern) {
-        //TODO: make this ask for input again
         String result = scanner.nextLine();
         if (!result.matches(pattern)) {
             throw new IllegalStateException("Invalid format.");
