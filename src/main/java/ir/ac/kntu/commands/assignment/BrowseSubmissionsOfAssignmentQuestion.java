@@ -7,7 +7,7 @@ import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
 import ir.ac.kntu.models.question.Question;
 
-public class BrowseSubmissionsOfAssignment extends SecureCommand {
+public class BrowseSubmissionsOfAssignmentQuestion extends SecureCommand {
     @Override
     public void secureExecute() {
         Classroom classroom = Console.nextClassroom(Auth.getCurrentUser().getEnrolledClassrooms().stream().toList());

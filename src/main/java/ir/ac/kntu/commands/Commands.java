@@ -3,10 +3,7 @@ package ir.ac.kntu.commands;
 import ir.ac.kntu.commands.auth.*;
 import ir.ac.kntu.commands.classroom.*;
 import ir.ac.kntu.commands.assignment.*;
-import ir.ac.kntu.commands.question.AddQuestionToQuestionBank;
-import ir.ac.kntu.commands.question.BrowseQuestionBank;
-import ir.ac.kntu.commands.question.EditQuestion;
-import ir.ac.kntu.commands.question.SubmitQuestionBankQuestion;
+import ir.ac.kntu.commands.question.*;
 import ir.ac.kntu.commands.user.*;
 
 import java.util.HashMap;
@@ -41,12 +38,15 @@ public class Commands {
             put("submit_assignment_question", new SubmitAssignmentQuestion());
             put("delete_question_from_assignment", new DeleteQuestionFromAssignment());
             put("edit_assignment_question", new EditAssignmentQuestion());
-
+            put("browse_submissions_of_assignment_question", new BrowseSubmissionsOfAssignmentQuestion());
+            put("get_final_submission_of_assignment_question", new GetFinalSubmissionForAssignmentQuestion());
 
             put("add_question_to_question_bank", new AddQuestionToQuestionBank());
             put("browse_question_bank", new BrowseQuestionBank());
             put("submit_question_bank_question", new SubmitQuestionBankQuestion());
             put("edit_question_bank_question", new EditQuestion());
+            put("browse_submissions_of_question_bank_question", new BrowseSubmissionsOfQuestion());
+            put("get_final_submission_of_question_bank_question", new GetFinalSubmissionForAssignmentQuestion());
         }
     };
 
