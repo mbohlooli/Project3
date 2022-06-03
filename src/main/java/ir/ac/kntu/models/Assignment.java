@@ -97,6 +97,10 @@ public class Assignment {
         questions.add(question);
     }
 
+    public void deleteQuestion(Question question) {
+        questions.remove(question);
+    }
+
     public void submitAnswer(Question question, Submission submission) {
         Date now = new Date();
 
