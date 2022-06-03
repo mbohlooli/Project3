@@ -2,8 +2,7 @@ package ir.ac.kntu.models;
 
 import ir.ac.kntu.models.question.Question;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class Assignment {
     private String name;
@@ -21,6 +20,8 @@ public class Assignment {
     private Classroom classroom;
 
     private ArrayList<Question> questions;
+
+    private boolean scoreTableVisible = false;
 
     public Assignment(String name, String description, Date start, Date due, Date overDue, double delayCoefficient, Classroom classroom) {
         this.name = name;
@@ -109,6 +110,49 @@ public class Assignment {
         }
 
         question.submitAnswer(submission);
+    }
+
+    public boolean isScoreTableVisible() {
+        return scoreTableVisible;
+    }
+
+    public void setScoreTableVisible(boolean scoreTableVisible) {
+        this.scoreTableVisible = scoreTableVisible;
+    }
+
+    public void displayScoreTable() {
+        List<User> students = classroom.getStudents().stream().sorted(Comparator.comparingInt(this::getScore)).toList();
+        Collections.reverse(students);
+        int place = 1;
+        int previousScore = getScore(students.get(0));
+        System.out.print("# ");
+        for (Question question: questions) {
+            System.out.print(question.getName() + " ");
+        }
+        System.out.print("total");
+        System.out.println();
+        for (User student: students) {
+            System.out.print(place + " ");
+            if (previousScore < getScore(student)) {
+                place++;
+            }
+            System.out.print(student.getUsername() + " ");
+            System.out.print(student.getName() + " ");
+            for (Question question: questions) {
+                Submission submission = question.getSubmissions(student).getFinalSubmission();
+                System.out.print(submission.getScore() + " ");
+            }
+            System.out.print(getScore(student) + " ");
+            System.out.println();
+        }
+    }
+
+    private int getScore(User student) {
+        int sum = 0;
+        for(Question question: questions) {
+            sum += question.getSubmissions(student).getFinalSubmission().getScore();
+        }
+        return sum;
     }
 
     @Override
