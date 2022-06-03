@@ -117,6 +117,10 @@ public class Classroom {
         return students;
     }
 
+    public void deleteAssignment(Assignment assignment) {
+        assignments.remove(assignment);
+    }
+
     @Override
     public String toString() {
         return "Classroom{" +
