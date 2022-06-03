@@ -40,6 +40,8 @@ public class Commands {
             put("edit_assignment_question", new EditAssignmentQuestion());
             put("browse_submissions_of_assignment_question", new BrowseSubmissionsOfAssignmentQuestion());
             put("get_final_submission_of_assignment_question", new GetFinalSubmissionForAssignmentQuestion());
+            put("set_assignment_score_table_visibility", new SetScoreTableVisibility());
+            put("get_score_table_of_assignment", new GetScoreTableOfAssignment());
 
             put("add_question_to_question_bank", new AddQuestionToQuestionBank());
             put("browse_question_bank", new BrowseQuestionBank());
