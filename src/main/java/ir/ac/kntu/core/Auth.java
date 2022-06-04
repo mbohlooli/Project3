@@ -31,6 +31,13 @@ public class Auth {
         return currentUser;
     }
 
+    public static Admin getCurrentAdmin() {
+        if (currentUser instanceof Admin) {
+            return (Admin) currentUser;
+        }
+        throw new IllegalStateException("Access denied!");
+    }
+
     public static boolean isLoggedIn() {
         return currentUser != null;
     }
