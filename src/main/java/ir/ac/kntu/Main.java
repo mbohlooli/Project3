@@ -6,6 +6,7 @@ import ir.ac.kntu.data.Classrooms;
 import ir.ac.kntu.data.Users;
 import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
+import ir.ac.kntu.models.user.Admin;
 import ir.ac.kntu.models.user.User;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ public class Main {
     }
 
     private static void seed() {
-        Users.getInstance().add(new User("admin", "admin", "pass", "a@b.com", "0123456789", "09123456789"));
+        Users.getInstance().add(new Admin("admin", "admin", "pass", "a@b.com", "0123456789", "09123456789"));
         User user = new User("user", "user", "pass", "b@b.com", "0123456781", "09123156789");
         Users.getInstance().add(user);
         Auth.login("admin", "pass");

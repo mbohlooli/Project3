@@ -34,4 +34,8 @@ public abstract class DataTable<T> {
     public ArrayList<T> all(Comparator<T> comparator) {
         return new ArrayList<>(entries.stream().sorted(comparator).toList());
     }
+
+    public void update(int index, T object) {
+        entries.set(index, object);
+    }
 }

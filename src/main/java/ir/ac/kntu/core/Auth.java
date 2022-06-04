@@ -1,6 +1,8 @@
 package ir.ac.kntu.core;
 
+import ir.ac.kntu.commands.Commands;
 import ir.ac.kntu.data.Users;
+import ir.ac.kntu.models.user.Admin;
 import ir.ac.kntu.models.user.User;
 
 public class Auth {
@@ -20,6 +22,9 @@ public class Auth {
             throw new IllegalArgumentException("Wrong username or password.");
         }
         currentUser = user;
+        if (user instanceof Admin) {
+            Commands.loadAdminCommands();
+        }
     }
 
     public static User getCurrentUser() {
