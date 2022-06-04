@@ -25,4 +25,13 @@ public class Admin extends User {
     public boolean isOwner(Classroom classroom) {
         return true;
     }
+
+    @Override
+    public void addScore(int increment) {
+    }
+
+    @Override
+    public int getPlace() {
+        return 0;
+    }
 }

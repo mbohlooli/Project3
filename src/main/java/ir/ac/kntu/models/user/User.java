@@ -23,6 +23,8 @@ public class User {
 
     private Set<Classroom> enrolledClassrooms;
 
+    private int score = 0;
+
     public User(String name, String username, String password, String email, String nationalCode, String phone) {
         this.name = name;
         this.username = username;
@@ -125,6 +127,14 @@ public class User {
 
     public boolean isOwner(Classroom classroom) {
         return ownedClassrooms.contains(classroom);
+    }
+
+    public void addScore(int increment) {
+        score += increment;
+    }
+
+    public int getPlace() {
+        return score/50;
     }
 
     @Override
