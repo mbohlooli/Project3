@@ -14,6 +14,7 @@ public class Commands {
             put("login", new Login());
             put("logout", new Logout());
             put("register", new Register());
+            put("exit", () -> System.exit(0));
             put("continue_as_guest", new ContinueAsGuest());
 
             put("search_user_national_code", new SearchUserByNationalCode());
@@ -58,6 +59,7 @@ public class Commands {
             put("login", new Login());
             put("logout", new Logout());
             put("register", new Register());
+            put("exit", () -> System.exit(0));
             put("browse_question_bank", new BrowseQuestionBank());
         }
     };
