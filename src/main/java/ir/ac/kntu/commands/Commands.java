@@ -31,6 +31,9 @@ public class Commands {
             put("add_student_to_classroom", new AddStudentToClassroom());
             put("edit_classroom", new EditClassroom());
             put("delete_classroom", new DeleteClassroom());
+            put("add_assistant_to_classroom", new AddAssistantToClassroom());
+            put("get_classroom_assistants", new GetClassroomAssistants());
+            put("remove_assistant_from_classroom", new RemoveAssistantFromClassroom());
 
             put("add_assignment_to_classroom", new AddAssignmentToClassroom());
             put("get_assignments_of_classroom", new GetAssignmentsOfClassroom());
@@ -82,6 +85,9 @@ public class Commands {
             put("add_student_to_classroom", new AddStudentToClassroom());
             put("edit_classroom", new EditClassroom());
             put("delete_classroom", new DeleteClassroom());
+            put("add_assistant_to_classroom", new AddAssistantToClassroom());
+            put("get_classroom_assistants", new GetClassroomAssistants());
+            put("remove_assistant_from_classroom", new RemoveAssistantFromClassroom());
 
             put("add_assignment_to_classroom", new AddAssignmentToClassroom());
             put("get_assignments_of_classroom", new GetAssignmentsOfClassroom());

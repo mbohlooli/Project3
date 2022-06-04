@@ -126,12 +126,18 @@ public class Classroom {
         assignments.remove(assignment);
     }
 
+    public ArrayList<User> getAssistants() {
+        return new ArrayList<>(assistants);
+    }
+
     public void addAssistant(User user) {
         assistants.add(user);
+        user.addOwnedClassroom(this);
     }
 
     public void removeAssistant(User user) {
         assistants.remove(user);
+        user.removeOwnedClassroom(this);
     }
 
     @Override
