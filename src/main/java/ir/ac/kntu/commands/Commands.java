@@ -9,11 +9,12 @@ import ir.ac.kntu.commands.user.*;
 import java.util.HashMap;
 
 public class Commands {
-    private static HashMap<String, Command> commands = new HashMap<>() {
+    private static HashMap<String, Command> userCommands = new HashMap<>() {
         {
             put("login", new Login());
             put("logout", new Logout());
             put("register", new Register());
+            put("continue_as_guest", new ContinueAsGuest());
 
             put("search_user_national_code", new SearchUserByNationalCode());
             put("search_user_email", new SearchUserByEmail());
@@ -52,7 +53,26 @@ public class Commands {
         }
     };
 
+    private static HashMap<String, Command> guestCommands = new HashMap<>() {
+        {
+            put("login", new Login());
+            put("logout", new Logout());
+            put("register", new Register());
+            put("browse_question_bank", new BrowseQuestionBank());
+        }
+    };
+
+    public static HashMap<String, Command> commands = userCommands;
+
     public static Command getCommand(String commandName) {
         return commands.get(commandName);
+    }
+
+    public static void loadGuestCommands() {
+        commands = guestCommands;
+    }
+
+    public static void loadUserCommands() {
+        commands = userCommands;
     }
 }

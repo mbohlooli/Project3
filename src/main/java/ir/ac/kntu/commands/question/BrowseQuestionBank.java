@@ -1,12 +1,13 @@
 package ir.ac.kntu.commands.question;
 
+import ir.ac.kntu.commands.Command;
 import ir.ac.kntu.commands.SecureCommand;
 import ir.ac.kntu.core.Console;
 import ir.ac.kntu.data.QuestionBank;
 
-public class BrowseQuestionBank extends SecureCommand {
+public class BrowseQuestionBank implements Command {
     @Override
-    public void secureExecute() {
+    public void execute() {
         System.out.print("Sort by difficulty (y/n)? (Default is time) ");
         boolean sortByDifficulty = Console.nextBoolean();
         QuestionBank.getInstance().all().stream()

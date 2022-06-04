@@ -12,6 +12,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Console {
     private static Scanner scanner = new Scanner(System.in);
 
+    public static void start() {
+        System.out.println("Welcome");
+        System.out.println("Type one of the commands below to enter the system: ");
+        System.out.println("login");
+        System.out.println("register");
+        System.out.println("continue_as_guest");
+        listen();
+    }
+
     public static void listen() {
         while (true) {
             System.out.print(">>> ");

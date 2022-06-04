@@ -13,7 +13,7 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) {
         seed();
-        Console.listen();
+        Console.start();
     }
 
     private static void seed() {
