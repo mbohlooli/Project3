@@ -16,6 +16,8 @@ public class DeleteClassroom extends SecureCommand {
         if (sure) {
             classroom.getOwner().removeOwnedClassroom(classroom);
             classroom.getStudents().forEach(s -> s.removeEnrolledClassroom(classroom));
+            classroom.getAssistants().forEach(a -> a.removeOwnedClassroom(classroom));
+            classroom.getTeacher().removeOwnedClassroom(classroom);
             Classrooms.getInstance().remove(classroom);
         }
     }

@@ -28,6 +28,8 @@ public class Classroom {
 
     private Set<User> students;
 
+    private User teacher;
+
     private ArrayList<Assignment> assignments;
 
     public Classroom(String name, String institute, String instructor, int educationYear, boolean isOpen, String password, String description) {
@@ -138,6 +140,20 @@ public class Classroom {
     public void removeAssistant(User user) {
         assistants.remove(user);
         user.removeOwnedClassroom(this);
+    }
+
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+        teacher.addOwnedClassroom(this);
+    }
+
+    public void removeTeacher() {
+        this.teacher.removeOwnedClassroom(this);
+        this.teacher = null;
     }
 
     @Override
