@@ -24,6 +24,8 @@ public class Classroom {
 
     private User owner;
 
+    private Set<User> assistants;
+
     private Set<User> students;
 
     private ArrayList<Assignment> assignments;
@@ -39,6 +41,8 @@ public class Classroom {
         this.students = new HashSet<>();
         this.assignments = new ArrayList<>();
         owner = Auth.getCurrentUser();
+        assistants = new HashSet<>();
+        assistants.add(owner);
         Auth.getCurrentUser().addOwnedClassroom(this);
     }
 
@@ -120,6 +124,14 @@ public class Classroom {
 
     public void deleteAssignment(Assignment assignment) {
         assignments.remove(assignment);
+    }
+
+    public void addAssistant(User user) {
+        assistants.add(user);
+    }
+
+    public void removeAssistant(User user) {
+        assistants.remove(user);
     }
 
     @Override
