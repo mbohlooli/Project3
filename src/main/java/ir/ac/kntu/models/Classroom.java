@@ -1,6 +1,7 @@
 package ir.ac.kntu.models;
 
 import ir.ac.kntu.core.Auth;
+import ir.ac.kntu.models.user.User;
 
 import java.util.ArrayList;
 import java.util.HashSet;

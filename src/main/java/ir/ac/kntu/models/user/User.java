@@ -1,4 +1,6 @@
-package ir.ac.kntu.models;
+package ir.ac.kntu.models.user;
+
+import ir.ac.kntu.models.Classroom;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -119,6 +121,10 @@ public class User {
         }
         User user = (User) o;
         return username.equals(user.username) || email.equals(user.email) || nationalCode.equals(user.nationalCode) || phone.equals(user.phone);
+    }
+
+    public boolean isOwner(Classroom classroom) {
+        return ownedClassrooms.contains(classroom);
     }
 
     @Override

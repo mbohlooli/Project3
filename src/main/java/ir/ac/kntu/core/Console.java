@@ -3,7 +3,7 @@ package ir.ac.kntu.core;
 import ir.ac.kntu.commands.Commands;
 import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 import ir.ac.kntu.models.question.*;
 
 import java.util.*;
@@ -58,7 +58,7 @@ public class Console {
 
     public static Assignment nextAssignment(Classroom source) {
         AtomicInteger counter = new AtomicInteger(1);
-        if (source.getOwner().equals(Auth.getCurrentUser())) {
+        if (Auth.getCurrentUser().isOwner(source)) {
             source.getAssignments().forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
         } else {
             source.getAssignments().stream().filter(a -> a.getStart().before(new Date())).forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));

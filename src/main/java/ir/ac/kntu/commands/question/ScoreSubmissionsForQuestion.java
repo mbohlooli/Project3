@@ -5,7 +5,7 @@ import ir.ac.kntu.core.Auth;
 import ir.ac.kntu.core.Console;
 import ir.ac.kntu.data.QuestionBank;
 import ir.ac.kntu.models.Submission;
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 import ir.ac.kntu.models.question.Question;
 
 public class ScoreSubmissionsForQuestion extends SecureCommand {

@@ -1,7 +1,7 @@
 package ir.ac.kntu.core;
 
 import ir.ac.kntu.data.Users;
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 
 public class Auth {
     private static User currentUser;

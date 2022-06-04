@@ -6,7 +6,7 @@ import ir.ac.kntu.data.Classrooms;
 import ir.ac.kntu.data.Users;
 import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 
 import java.util.Date;
 

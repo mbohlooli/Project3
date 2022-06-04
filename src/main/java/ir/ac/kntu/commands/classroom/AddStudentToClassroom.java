@@ -6,7 +6,7 @@ import ir.ac.kntu.core.Console;
 import ir.ac.kntu.core.Patterns;
 import ir.ac.kntu.data.Users;
 import ir.ac.kntu.models.Classroom;
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 
 
 public class AddStudentToClassroom extends SecureCommand {

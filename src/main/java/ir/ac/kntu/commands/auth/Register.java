@@ -4,7 +4,7 @@ import ir.ac.kntu.commands.Command;
 import ir.ac.kntu.core.Auth;
 import ir.ac.kntu.core.Console;
 import ir.ac.kntu.core.Patterns;
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 
 public class Register implements Command {
     @Override

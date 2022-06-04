@@ -1,6 +1,6 @@
 package ir.ac.kntu.data;
 
-import ir.ac.kntu.models.User;
+import ir.ac.kntu.models.user.User;
 
 import java.util.ArrayList;
 

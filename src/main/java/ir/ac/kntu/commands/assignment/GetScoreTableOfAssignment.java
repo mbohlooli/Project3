@@ -19,7 +19,7 @@ public class GetScoreTableOfAssignment extends SecureCommand {
         allClassrooms.addAll(enrolledClassrooms);
         Classroom classroom = Console.nextClassroom(allClassrooms);
         Assignment assignment = Console.nextAssignment(classroom);
-        if (!classroom.getOwner().equals(Auth.getCurrentUser()) && !assignment.isScoreTableVisible()) {
+        if (!Auth.getCurrentUser().isOwner(classroom) && !assignment.isScoreTableVisible()) {
             throw new IllegalStateException("Access denied.");
         }
         assignment.displayScoreTable();
