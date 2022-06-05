@@ -72,6 +72,7 @@ public class Commands {
             put("register", new Register());
             put("exit", () -> System.exit(0));
             put("browse_question_bank", new BrowseQuestionBank());
+            put("get_ended_competition_questions", new GetEndedCompetitionQuestions());
         }
     };
 
