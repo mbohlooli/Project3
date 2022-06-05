@@ -69,6 +69,18 @@ public abstract class Competition {
         this.end = end;
     }
 
+    public void addQuestion(Question question) {
+        questions.add(question);
+    }
+
+    public ArrayList<Question> getQuestions() {
+        return new ArrayList<>(questions);
+    }
+
+    public void removeQuestion(Question question) {
+        questions.remove(question);
+    }
+
     @Override
     public String toString() {
         return "Competition{" +
