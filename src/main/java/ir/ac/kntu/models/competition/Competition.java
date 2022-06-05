@@ -6,10 +6,7 @@ import ir.ac.kntu.models.question.Question;
 import ir.ac.kntu.models.user.Admin;
 import ir.ac.kntu.models.user.User;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public abstract class Competition {
     protected String title;
@@ -86,6 +83,41 @@ public abstract class Competition {
 
     public void submitAnswer(Question question, Submission submission) {
         question.submitAnswer(submission);
+    }
+
+    public void displayScoreTable() {
+        List<User> users = attenders.stream().sorted(Comparator.comparingInt(this::getScore)).toList();
+        Collections.reverse(users);
+        int place = 1;
+        int previousScore = getScore(users.get(0));
+        System.out.print("# ");
+        for (Question question: questions) {
+            System.out.print(question.getName() + " ");
+        }
+        System.out.print("total");
+        System.out.println();
+        for (User student: users) {
+            System.out.print(place + " ");
+            if (previousScore < getScore(student)) {
+                place++;
+            }
+            System.out.print(student.getUsername() + " ");
+            System.out.print(student.getName() + " ");
+            for (Question question: questions) {
+                Submission submission = question.getSubmissions(student).getFinalSubmission();
+                System.out.print(submission.getScore() + " ");
+            }
+            System.out.print(getScore(student) + " ");
+            System.out.println();
+        }
+    }
+
+    private int getScore(User attender) {
+        int sum = 0;
+        for(Question question: questions) {
+            sum += question.getSubmissions(attender).getFinalSubmission().getScore();
+        }
+        return sum;
     }
 
     @Override
