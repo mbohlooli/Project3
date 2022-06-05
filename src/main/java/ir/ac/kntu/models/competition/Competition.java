@@ -112,13 +112,15 @@ public abstract class Competition {
         }
     }
 
-    private int getScore(User attender) {
+    protected int getScore(User attender) {
         int sum = 0;
         for(Question question: questions) {
             sum += question.getSubmissions(attender).getFinalSubmission().getScore();
         }
         return sum;
     }
+
+    public abstract void end();
 
     @Override
     public String toString() {

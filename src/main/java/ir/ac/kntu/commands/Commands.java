@@ -130,6 +130,7 @@ public class Commands {
             put("add_attender_to_competition", new AddAttenderToCompetition());
             put("score_competition_question_submission", new ScoreSubmissionForCompetitionQuestion());
             put("get_competition_question_submission_by_email", new GetSubmissionsOfCompetitionByEmail());
+            put("end_competition", new EndCompetition());
         }
     };
 
