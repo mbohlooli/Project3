@@ -61,6 +61,7 @@ public class Commands {
             put("attend_competition", new AttendCompetition());
             put("submit_competition_question", new SubmitCompetitionQuestion());
             put("get_submissions_for_competition_question", new GetSubmissionsForCompetitionQuestion());
+            put("get_final_submission_for_competition_question", new GetFinalSubmissionForCompetitionQuestion());
         }
     };
 
