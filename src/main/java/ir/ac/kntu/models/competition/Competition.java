@@ -1,6 +1,7 @@
 package ir.ac.kntu.models.competition;
 
 import ir.ac.kntu.core.Auth;
+import ir.ac.kntu.models.Submission;
 import ir.ac.kntu.models.question.Question;
 import ir.ac.kntu.models.user.Admin;
 import ir.ac.kntu.models.user.User;
@@ -81,6 +82,10 @@ public abstract class Competition {
 
     public void removeQuestion(Question question) {
         questions.remove(question);
+    }
+
+    public void submitAnswer(Question question, Submission submission) {
+        question.submitAnswer(submission);
     }
 
     @Override

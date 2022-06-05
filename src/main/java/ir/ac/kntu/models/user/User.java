@@ -4,6 +4,7 @@ import ir.ac.kntu.data.Competitions;
 import ir.ac.kntu.models.Classroom;
 import ir.ac.kntu.models.competition.Competition;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -116,6 +117,10 @@ public class User {
 
     public void removeEnrolledClassroom(Classroom classroom) {
         enrolledClassrooms.remove(classroom);
+    }
+
+    public Set<Competition> getAttendedCompetitions() {
+        return new HashSet<>(attendedCompetitions);
     }
 
     public void attendCompetition(Competition competition) {
