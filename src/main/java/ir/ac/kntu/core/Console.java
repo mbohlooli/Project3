@@ -155,7 +155,7 @@ public class Console {
         AtomicInteger counter = new AtomicInteger(1);
         source.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
 
-        System.out.println("Choose the classroom: ");
+        System.out.println("Choose the user: ");
         int index = Console.nextInt() - 1;
         return source.get(index);
     }

@@ -123,6 +123,7 @@ public class Commands {
             put("delete_competition_question", new DeleteQuestionFromCompetition());
             put("browse_competitions", new BrowseCompetitions());
             put("search_competition_by_title", new SearchCompetitionByTitle());
+            put("add_attender_to_competition", new AddAttenderToCompetition());
         }
     };
 
