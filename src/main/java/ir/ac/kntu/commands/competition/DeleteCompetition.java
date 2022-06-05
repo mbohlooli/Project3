@@ -16,7 +16,7 @@ public class DeleteCompetition extends SecureCommand {
         if (sure) {
             Competitions.getInstance().remove(competition);
             ((Admin) Auth.getCurrentUser()).removeOwnedCompetition(competition);
-            //TODO: make an enrolled competition feild in user class and remove them too
+            competition.getAttenders().forEach(u -> u.removeAttendedCompetition(competition));
         }
     }
 }

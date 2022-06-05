@@ -1,6 +1,8 @@
 package ir.ac.kntu.models.user;
 
+import ir.ac.kntu.data.Competitions;
 import ir.ac.kntu.models.Classroom;
+import ir.ac.kntu.models.competition.Competition;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -23,6 +25,8 @@ public class User {
 
     private Set<Classroom> enrolledClassrooms;
 
+    private Set<Competition> attendedCompetitions;
+
     private int score = 0;
 
     public User(String name, String username, String password, String email, String nationalCode, String phone) {
@@ -32,8 +36,9 @@ public class User {
         this.email = email;
         this.nationalCode = nationalCode;
         this.phone = phone;
-        this.ownedClassrooms = new HashSet<>();
-        this.enrolledClassrooms = new HashSet<>();
+        ownedClassrooms = new HashSet<>();
+        enrolledClassrooms = new HashSet<>();
+        attendedCompetitions = new HashSet<>();
     }
 
     public String getName() {
@@ -111,6 +116,15 @@ public class User {
 
     public void removeEnrolledClassroom(Classroom classroom) {
         enrolledClassrooms.remove(classroom);
+    }
+
+    public void attendCompetition(Competition competition) {
+        attendedCompetitions.add(competition);
+        competition.addAttender(this);
+    }
+
+    public void removeAttendedCompetition(Competition competition) {
+        attendedCompetitions.remove(competition);
     }
 
     @Override
