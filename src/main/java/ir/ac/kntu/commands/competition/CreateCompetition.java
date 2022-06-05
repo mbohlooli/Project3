@@ -30,7 +30,11 @@ public class CreateCompetition extends SecureCommand {
         int type = Console.nextInt();
         Competition competition;
         switch (type) {
-            case 1 -> competition = new SpecialCompetition(title, start, end);
+            case 1 -> {
+                System.out.print("Enter the max group capacity: ");
+                int max = Console.nextInt();
+                competition = new SpecialCompetition(title, start, end, max);
+            }
             case 2 -> competition = new PrivateCompetition(title, start, end);
             case 3 -> competition = new RegularCompetition(title, start, end);
             default -> throw new IllegalArgumentException("Invalid Argument.");
