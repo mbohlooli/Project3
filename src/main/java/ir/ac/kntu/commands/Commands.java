@@ -3,10 +3,7 @@ package ir.ac.kntu.commands;
 import ir.ac.kntu.commands.auth.*;
 import ir.ac.kntu.commands.classroom.*;
 import ir.ac.kntu.commands.assignment.*;
-import ir.ac.kntu.commands.competition.CreateCompetition;
-import ir.ac.kntu.commands.competition.DeleteCompetition;
-import ir.ac.kntu.commands.competition.EditCompetition;
-import ir.ac.kntu.commands.competition.GetOwnedCompetitions;
+import ir.ac.kntu.commands.competition.*;
 import ir.ac.kntu.commands.question.*;
 import ir.ac.kntu.commands.user.*;
 
@@ -118,6 +115,9 @@ public class Commands {
             put("get_owned_competitions", new GetOwnedCompetitions());
             put("delete_owned_competition", new DeleteCompetition());
             put("edit_owned_competition", new EditCompetition());
+            put("add_question_to_competition", new AddQuestionToCompetition());
+            put("edit_competition_question", new EditCompetitionQuestion());
+            put("delete_competition_question", new DeleteQuestionFromCompetition());
         }
     };
 
