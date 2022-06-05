@@ -3,6 +3,7 @@ package ir.ac.kntu.core;
 import ir.ac.kntu.commands.Commands;
 import ir.ac.kntu.models.Assignment;
 import ir.ac.kntu.models.Classroom;
+import ir.ac.kntu.models.competition.Competition;
 import ir.ac.kntu.models.user.User;
 import ir.ac.kntu.models.question.*;
 
@@ -85,6 +86,15 @@ public class Console {
         System.out.println("Choose the question: ");
         int index = Console.nextInt() - 1;
         return questions.get(index);
+    }
+
+    public static Competition nextCompetition(List<Competition> competitions) {
+        AtomicInteger counter = new AtomicInteger(1);
+        competitions.forEach(c -> System.out.println(counter.getAndIncrement() + "- " + c));
+
+        System.out.println("Choose the competition: ");
+        int index = Console.nextInt() - 1;
+        return competitions.get(index);
     }
 
     public static Question nextQuestion() {
