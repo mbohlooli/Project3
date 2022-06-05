@@ -60,6 +60,7 @@ public class Commands {
             put("search_competition_by_title", new SearchCompetitionByTitle());
             put("attend_competition", new AttendCompetition());
             put("submit_competition_question", new SubmitCompetitionQuestion());
+            put("get_submissions_for_competition_question", new GetSubmissionsForCompetitionQuestion());
         }
     };
 
