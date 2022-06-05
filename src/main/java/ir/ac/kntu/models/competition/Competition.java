@@ -29,4 +29,13 @@ public abstract class Competition {
         attenders = new ArrayList<>();
         owner = Auth.getCurrentAdmin();
     }
+
+    @Override
+    public String toString() {
+        return "Competition{" +
+                "title='" + title + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                '}';
+    }
 }

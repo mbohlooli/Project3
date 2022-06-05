@@ -44,4 +44,8 @@ public class Admin extends User {
     public void addOwnedCompetition(Competition competition) {
         ownedCompetitions.add(competition);
     }
+
+    public ArrayList<Competition> getOwnedCompetitions() {
+        return new ArrayList<>(ownedCompetitions);
+    }
 }

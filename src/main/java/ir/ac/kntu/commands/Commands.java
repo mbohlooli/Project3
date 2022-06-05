@@ -4,6 +4,7 @@ import ir.ac.kntu.commands.auth.*;
 import ir.ac.kntu.commands.classroom.*;
 import ir.ac.kntu.commands.assignment.*;
 import ir.ac.kntu.commands.competition.CreateCompetition;
+import ir.ac.kntu.commands.competition.GetOwnedCompetitions;
 import ir.ac.kntu.commands.question.*;
 import ir.ac.kntu.commands.user.*;
 
@@ -112,6 +113,7 @@ public class Commands {
             put("promote_user_to_admin", new PromoteUserToAdmin());
 
             put("create_competition", new CreateCompetition());
+            put("get_owned_competitions", new GetOwnedCompetitions());
         }
     };
 
