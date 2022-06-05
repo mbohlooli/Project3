@@ -119,8 +119,8 @@ public class User {
     }
 
     public void attendCompetition(Competition competition) {
-        attendedCompetitions.add(competition);
         competition.addAttender(this);
+        attendedCompetitions.add(competition);
     }
 
     public void removeAttendedCompetition(Competition competition) {
