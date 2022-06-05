@@ -45,6 +45,8 @@ public abstract class Competition {
 
     public abstract boolean isAvailable();
 
+    public abstract boolean isVisible();
+
     public String getTitle() {
         return title;
     }

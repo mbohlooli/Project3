@@ -55,6 +55,8 @@ public class Commands {
             put("edit_question_bank_question", new EditQuestion());
             put("browse_submissions_of_question_bank_question", new BrowseSubmissionsOfQuestion());
             put("get_final_submission_of_question_bank_question", new GetFinalSubmissionForAssignmentQuestion());
+
+            put("browse_competitions", new BrowseCompetitions());
         }
     };
 
@@ -118,6 +120,7 @@ public class Commands {
             put("add_question_to_competition", new AddQuestionToCompetition());
             put("edit_competition_question", new EditCompetitionQuestion());
             put("delete_competition_question", new DeleteQuestionFromCompetition());
+            put("browse_competitions", new BrowseCompetitions());
         }
     };
 
