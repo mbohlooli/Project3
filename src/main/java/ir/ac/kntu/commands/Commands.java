@@ -5,6 +5,7 @@ import ir.ac.kntu.commands.classroom.*;
 import ir.ac.kntu.commands.assignment.*;
 import ir.ac.kntu.commands.competition.CreateCompetition;
 import ir.ac.kntu.commands.competition.DeleteCompetition;
+import ir.ac.kntu.commands.competition.EditCompetition;
 import ir.ac.kntu.commands.competition.GetOwnedCompetitions;
 import ir.ac.kntu.commands.question.*;
 import ir.ac.kntu.commands.user.*;
@@ -116,6 +117,7 @@ public class Commands {
             put("create_competition", new CreateCompetition());
             put("get_owned_competitions", new GetOwnedCompetitions());
             put("delete_owned_competition", new DeleteCompetition());
+            put("edit_owned_competition", new EditCompetition());
         }
     };
 
